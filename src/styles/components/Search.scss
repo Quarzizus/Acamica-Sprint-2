@@ -1,0 +1,23 @@
+.Search {
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+  padding: 10px 0;
+  background-color: rgb(28, 100, 184);
+
+  input {
+    border: none;
+  }
+  input[type="date"] {
+    width: 15%;
+  }
+  select {
+    width: 12%;
+  }
+  button {
+    background-color: rgb(255, 0, 64);
+    color: white;
+    border: none;
+    padding: 0 10px;
+  }
+}
