@@ -1,5 +1,8 @@
 .HotelContainer {
-  background-color: green;
+  background-color: rgb(53, 218, 53);
   width: 100%;
-  height: 100vh;
+  height: minmax(100vh, auto);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 300px;
 }

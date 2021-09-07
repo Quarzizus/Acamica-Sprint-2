@@ -1,10 +1,11 @@
 import React from "react";
-import IMG from "../images/alto-atacama.jpg";
-const Card = () => {
+import "../styles/components/Card.scss";
+
+const Card = ({ img }) => {
   return (
     <article className="Card">
       <picture className="Container_collage">
-        <img src={IMG} alt="" />
+        <img src={img} alt="" />
       </picture>
     </article>
   );
