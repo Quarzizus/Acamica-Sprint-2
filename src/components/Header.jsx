@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react"; // hook
+import AppContext from "../context/AppContext"; // herramienta
 import Search from "./Search";
 import "../styles/components/Header.scss";
 

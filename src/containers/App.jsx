@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../components/Header";
+// import Prueba from "../prueba/Prueba";
 import "../styles/containers/App.scss";
 import HotelContainer from "./HotelContainer";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
       <Header />
-      <HotelContainer />
+      {/* <HotelContainer /> */}
+      {/* <Prueba /> */}
     </div>
   );
 }
