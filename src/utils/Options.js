@@ -1,24 +1,33 @@
-const paises = {
-  0: "Todos los paises",
-  1: "Argentina",
-  2: "Uruguay",
-  3: "Brasil",
-  4: "Chile",
+const countries = {
+  options: {
+    0: "Todos los paises",
+    1: "Argentina",
+    2: "Uruguay",
+    3: "Brasil",
+    4: "Chile",
+  },
+  name: "countries",
 };
 
-const precios = {
-  0: "Cualquier precio",
-  1: "$",
-  2: "$ $ ",
-  3: "$ $ $ ",
-  4: "$ $ $ $",
+const prices = {
+  options: {
+    0: "Cualquier precio",
+    1: "$",
+    2: "$$",
+    3: "$$$",
+    4: "$$$$",
+  },
+  name: "prices",
 };
 
-const tamaños = {
-  0: "Cualquier tamaño",
-  1: "Pequeño",
-  2: "Mediano",
-  3: "Grande",
+const sizes = {
+  options: {
+    0: "Cualquier tamaño",
+    10: "Pequeño",
+    20: "Mediano",
+    30: "Grande",
+  },
+  name: "sizes",
 };
 
-export { paises, precios, tamaños };
+export { countries, prices, sizes };

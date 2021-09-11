@@ -1,18 +1,19 @@
-import React from "react";
-import { hotelsData } from "../context/data.js";
-import { paises, tamaños, precios } from "../utils/Options";
+import React, { useContext } from "react";
+import { countries, sizes, prices } from "../utils/Options";
 import Select from "../components/Select";
+import AppContext from "../context/AppContext";
 import InputDate from "./InputDate.jsx";
 import "../styles/components/Search.scss";
 
 const Search = () => {
+  const { countriesFilter, pricesFilter, sizesFilter } = useContext(AppContext);
   return (
     <form className="Search">
       <InputDate />
       <InputDate />
-      <Select options={paises} />
-      <Select options={precios} />
-      <Select options={tamaños} />
+      <Select options={countries} filter={countriesFilter} />
+      <Select options={prices} filter={pricesFilter} />
+      <Select options={sizes} filter={sizesFilter} />
       <button type="reset">ELIMINAR</button>
     </form>
   );

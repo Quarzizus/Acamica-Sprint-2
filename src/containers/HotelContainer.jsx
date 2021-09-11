@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "../components/Card";
-import { hotelsData } from "../context/data";
+import AppContext from "../context/AppContext";
+// import { hotelsData } from "../context/data";
 import "../styles/containers/HotelContainer.scss";
 
 const HotelContainer = () => {
+  const { data } = useContext(AppContext);
   return (
     <section className="HotelContainer">
-      {hotelsData.map((hotel, key) => (
+      {data.map((hotel, key) => (
         <Card img={hotel.photo} key={key} />
       ))}
     </section>
