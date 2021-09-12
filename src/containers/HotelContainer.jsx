@@ -8,7 +8,7 @@ const HotelContainer = () => {
   return (
     <section className="HotelContainer">
       {data.map((hotel, key) => (
-        <Card img={hotel.photo} key={key} />
+        <Card dataHotel={hotel} key={key} />
       ))}
     </section>
   );
