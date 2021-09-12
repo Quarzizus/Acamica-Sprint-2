@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import Card from "../components/Card";
 import AppContext from "../context/AppContext";
-// import { hotelsData } from "../context/data";
 import "../styles/containers/HotelContainer.scss";
 
 const HotelContainer = () => {

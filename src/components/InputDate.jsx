@@ -1,13 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
-const InputDate = () => {
-  const inputRef = useRef();
+const InputDate = ({ filter }) => {
   const [date, setDate] = useState(false);
 
   return (
     <>
       {date ? (
-        <input type="date" min="2018-01-01" max="2018-12-31" />
+        <input type="date" onChange={(e) => filter(e.target.valueAsDate)} />
       ) : (
         <input
           type="text"

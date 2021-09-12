@@ -39,9 +39,33 @@ const AppState = ({ children }) => {
       })
     );
   };
+
+  const dateFrom = (dateFrom) => {
+    setData(
+      hotelsData.filter((date) => {
+        return date.availabilityFrom >= dateFrom.valueOf();
+      })
+    );
+  };
+
+  const dateTo = (dateTo) => {
+    setData(
+      hotelsData.filter((date) => {
+        return date.availabilityTo <= dateTo.valueOf();
+      })
+    );
+  };
+
   return (
     <AppContext.Provider
-      value={{ data, countriesFilter, pricesFilter, sizesFilter }}
+      value={{
+        data,
+        countriesFilter,
+        pricesFilter,
+        sizesFilter,
+        dateFrom,
+        dateTo,
+      }}
     >
       {children}
     </AppContext.Provider>

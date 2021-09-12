@@ -6,11 +6,12 @@ import InputDate from "./InputDate.jsx";
 import "../styles/components/Search.scss";
 
 const Search = () => {
-  const { countriesFilter, pricesFilter, sizesFilter } = useContext(AppContext);
+  const { countriesFilter, pricesFilter, sizesFilter, dateFrom, dateTo } =
+    useContext(AppContext);
   return (
     <form className="Search">
-      <InputDate />
-      <InputDate />
+      <InputDate filter={dateFrom} />
+      <InputDate filter={dateTo} />
       <Select options={countries} filter={countriesFilter} />
       <Select options={prices} filter={pricesFilter} />
       <Select options={sizes} filter={sizesFilter} />
