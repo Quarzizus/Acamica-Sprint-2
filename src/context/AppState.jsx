@@ -7,7 +7,7 @@ const AppState = ({ children }) => {
 
   const countriesFilter = (country) => {
     setData(
-      hotelsData.filter((hotel) => {
+      data.filter((hotel) => {
         if (country === "Todos los paises") {
           return hotelsData;
         } else {
@@ -19,7 +19,7 @@ const AppState = ({ children }) => {
 
   const pricesFilter = (price) => {
     setData(
-      hotelsData.filter((hotel) => {
+      data.filter((hotel) => {
         if (price == "Cualquier precio") {
           return hotelsData;
         } else {
@@ -31,7 +31,7 @@ const AppState = ({ children }) => {
 
   const sizesFilter = (size) => {
     setData(
-      hotelsData.filter((hotel) => {
+      data.filter((hotel) => {
         if (Number(size) === 0) return hotelsData;
         if (Number(size) === 30) return hotel.rooms > 20;
         if (hotel.rooms > Number(size - 10) && hotel.rooms < Number(size))
@@ -42,7 +42,7 @@ const AppState = ({ children }) => {
 
   const dateFrom = (dateFrom) => {
     setData(
-      hotelsData.filter((date) => {
+      data.filter((date) => {
         return date.availabilityFrom >= dateFrom.valueOf();
       })
     );
@@ -50,12 +50,15 @@ const AppState = ({ children }) => {
 
   const dateTo = (dateTo) => {
     setData(
-      hotelsData.filter((date) => {
+      data.filter((date) => {
         return date.availabilityTo <= dateTo.valueOf();
       })
     );
   };
 
+  const resetFilters = () => {
+    setData(hotelsData);
+  };
   return (
     <AppContext.Provider
       value={{
@@ -65,6 +68,7 @@ const AppState = ({ children }) => {
         sizesFilter,
         dateFrom,
         dateTo,
+        resetFilters,
       }}
     >
       {children}
