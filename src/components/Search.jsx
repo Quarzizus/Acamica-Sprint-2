@@ -6,24 +6,19 @@ import InputDate from "./InputDate.jsx";
 import "../styles/components/Search.scss";
 
 const Search = () => {
-  const {
-    countriesFilter,
-    pricesFilter,
-    sizesFilter,
-    dateFrom,
-    dateTo,
-    resetFilters,
-  } = useContext(AppContext);
+  const { resetFilters, filtersValues } = useContext(AppContext);
+
   return (
     <form className="Search">
-      <InputDate filter={dateFrom} />
-      <InputDate filter={dateTo} />
-      <Select options={countries} filter={countriesFilter} />
-      <Select options={prices} filter={pricesFilter} />
-      <Select options={sizes} filter={sizesFilter} />
+      <InputDate name="dateFrom" />
+      <InputDate name="dateTo" />
+      <Select options={countries} />
+      <Select options={prices} />
+      <Select options={sizes} />
       <button type="reset" onClick={resetFilters}>
         ELIMINAR
       </button>
+      {console.log(filtersValues)}
     </form>
   );
 };

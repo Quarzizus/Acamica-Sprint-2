@@ -14,7 +14,7 @@ import vikchile from "../images/vik-chile.jpg";
 import casahigueras from "../images/casa-higueras.jpg";
 import campotinto from "../images/campo-tinto.jpg";
 
-const today = new Date();
+const today = new Date().setHours(0, 0, 0);
 export const hotelsData = [
   {
     slug: "la-bamba-de-areco",

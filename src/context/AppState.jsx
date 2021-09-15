@@ -4,71 +4,61 @@ import { hotelsData } from "./data";
 
 const AppState = ({ children }) => {
   const [data, setData] = useState(hotelsData);
+  const [filtersValues, setFiltersValues] = useState({
+    countries: "Todos los paises",
+    prices: "Cualquier precio",
+    sizes: 0,
+    dateFrom: new Date().valueOf() - 3456000000,
+    dateTo: new Date().valueOf() + 3456000000,
+  });
 
-  const countriesFilter = (country) => {
-    setData(
-      data.filter((hotel) => {
-        if (country === "Todos los paises") {
+  const filterInputs = () => {
+    let hotels = hotelsData
+      .filter((hotel) => {
+        if (filtersValues.countries === "Todos los paises") {
           return hotelsData;
         } else {
-          return hotel.country === country;
+          return hotel.country === filtersValues.countries;
         }
       })
-    );
-  };
-
-  const pricesFilter = (price) => {
-    setData(
-      data.filter((hotel) => {
-        if (price == "Cualquier precio") {
+      .filter((hotel) => {
+        if (filtersValues.prices == "Cualquier precio") {
           return hotelsData;
         } else {
-          return hotel.price === price.length;
+          return hotel.price === filtersValues.prices.length;
         }
       })
-    );
-  };
-
-  const sizesFilter = (size) => {
-    setData(
-      data.filter((hotel) => {
-        if (Number(size) === 0) return hotelsData;
-        if (Number(size) === 30) return hotel.rooms > 20;
-        if (hotel.rooms > Number(size - 10) && hotel.rooms < Number(size))
+      .filter((hotel) => {
+        if (Number(filtersValues.sizes) === 0) return hotelsData;
+        if (Number(filtersValues.sizes) === 30) return hotel.rooms > 20;
+        if (
+          hotel.rooms > Number(filtersValues.sizes - 10) &&
+          hotel.rooms < Number(filtersValues.sizes)
+        )
           return hotel;
       })
-    );
-  };
-
-  const dateFrom = (dateFrom) => {
-    setData(
-      data.filter((date) => {
-        return date.availabilityFrom >= dateFrom.valueOf();
+      .filter((date) => {
+        return date.availabilityFrom >= filtersValues.dateFrom;
       })
-    );
-  };
-
-  const dateTo = (dateTo) => {
-    setData(
-      data.filter((date) => {
-        return date.availabilityTo <= dateTo.valueOf();
-      })
-    );
+      .filter((date) => {
+        return date.availabilityTo <= filtersValues.dateTo;
+      });
+    return hotels;
   };
 
   const resetFilters = () => {
     setData(hotelsData);
   };
+
   return (
     <AppContext.Provider
       value={{
         data,
-        countriesFilter,
-        pricesFilter,
-        sizesFilter,
-        dateFrom,
-        dateTo,
         resetFilters,
+        filtersValues,
+        setFiltersValues,
+        filterInputs,
+        setData,
       }}
     >
       {children}

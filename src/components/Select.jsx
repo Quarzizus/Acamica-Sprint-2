@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import AppContext from "../context/AppContext";
 import "../styles/components/Select.scss";
 
-const Select = ({ options, filter }) => {
+const Select = ({ options }) => {
+  const { setFiltersValues, filtersValues, filterInputs, setData } =
+    useContext(AppContext);
+
+  useEffect(() => {
+    const filterData = filterInputs();
+    setData(filterData);
+  }, [filtersValues]);
+
   return (
     <select
       name={options.name}
       className="Select"
-      onClick={(e) => filter(e.target.value)}
+      onChange={(e) =>
+        setFiltersValues({ ...filtersValues, [options.name]: e.target.value })
+      }
     >
       {Object.entries(options.options).map(([key, value], i) => (
         <React.Fragment key={i}>
