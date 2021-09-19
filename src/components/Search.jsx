@@ -3,10 +3,12 @@ import { countries, sizes, prices } from "../utils/Options";
 import Select from "../components/Select";
 import AppContext from "../context/AppContext";
 import InputDate from "./InputDate.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "../styles/components/Search.scss";
 
 const Search = () => {
-  const { resetFilters, filtersValues } = useContext(AppContext);
+  const { resetFilters } = useContext(AppContext);
 
   return (
     <form className="Search">
@@ -16,9 +18,9 @@ const Search = () => {
       <Select options={prices} />
       <Select options={sizes} />
       <button type="reset" onClick={resetFilters}>
-        ELIMINAR
+        <FontAwesomeIcon icon={faTrash} />
+        LIMPIAR
       </button>
-      {console.log(filtersValues)}
     </form>
   );
 };
