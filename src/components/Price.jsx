@@ -4,10 +4,14 @@ const Price = ({ price }) => {
   return (
     <article className="Price">
       {Array.from({ length: price }, (i) => {
-        return <span>$</span>;
+        return <span key={i}>$</span>;
       })}
       {Array.from({ length: 4 - price }, (i) => {
-        return <span className="Light">$</span>;
+        return (
+          <span key={i} className="Light">
+            $
+          </span>
+        );
       })}
     </article>
   );

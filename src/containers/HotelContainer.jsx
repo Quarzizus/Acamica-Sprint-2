@@ -5,7 +5,11 @@ import "../styles/containers/HotelContainer.scss";
 
 const HotelContainer = () => {
   const { data } = useContext(AppContext);
-  return (
+  return !data.length ? (
+    <p className="HotelContainer_empty">
+      No hay hoteles con estas especificaciones
+    </p>
+  ) : (
     <section className="HotelContainer">
       {data.map((hotel, key) => (
         <Card dataHotel={hotel} key={key} />

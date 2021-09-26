@@ -5,9 +5,10 @@ import { hotelsData } from "./data";
 const AppState = ({ children }) => {
   const [data, setData] = useState(hotelsData);
   const [filtersValues, setFiltersValues] = useState({
+    // valores iniciales
     countries: "Todos los paises",
     prices: "Cualquier precio",
-    sizes: 0,
+    sizes: "Todos los tamaños",
     dateFrom: new Date().valueOf() - 3456000000,
     dateTo: new Date().valueOf() + 3456000000,
   });
@@ -29,7 +30,7 @@ const AppState = ({ children }) => {
         }
       })
       .filter((hotel) => {
-        if (Number(filtersValues.sizes) === 0) return hotelsData;
+        if (filtersValues.sizes === "Todos los tamaños") return hotelsData;
         if (Number(filtersValues.sizes) === 30) return hotel.rooms > 20;
         if (
           hotel.rooms > Number(filtersValues.sizes - 10) &&

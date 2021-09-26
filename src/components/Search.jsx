@@ -12,8 +12,8 @@ const Search = () => {
 
   return (
     <form className="Search">
-      <InputDate name="dateFrom" />
-      <InputDate name="dateTo" />
+      <InputDate name="dateFrom" placeholder="Fecha de inicio" />
+      <InputDate name="dateTo" placeholder="Fecha de limite" />
       <Select options={countries} />
       <Select options={prices} />
       <Select options={sizes} />

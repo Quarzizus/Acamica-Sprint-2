@@ -22,12 +22,6 @@ const Card = ({ dataHotel }) => {
     month: "long",
     day: "numeric",
   };
-  const [dateFrom, setDateFrom] = useState(
-    new Date(availabilityFrom).toLocaleDateString("es-ES", options)
-  );
-  const [dateTo, setDateTo] = useState(
-    new Date(availabilityTo).toLocaleDateString("es-ES", options)
-  );
 
   return (
     <article className="Card">
@@ -36,8 +30,12 @@ const Card = ({ dataHotel }) => {
       </picture>
       <section className="Card_info">
         <h3>{name}</h3>
-        <p>{`Desde el ${dateFrom}`}</p>
-        <p>{`Hasta el ${dateTo}`}</p>
+        <p>
+          Desde el {new Date(availabilityFrom).toLocaleString("es-ES", options)}
+        </p>
+        <p>
+          Hasta el {new Date(availabilityTo).toLocaleString("es-ES", options)}
+        </p>
         <div className="Card_wrapper-description">
           <p>{description}</p>
         </div>
@@ -47,7 +45,12 @@ const Card = ({ dataHotel }) => {
         <Info icon={faBed} content={`${rooms} habitaciones`} />
         <Price price={price} />
       </div>
-      <button className="Card_button-reservar">Reservar</button>
+      <button
+        className="Card_button-reservar"
+        onClick={() => alert("Reservado con exito :3")}
+      >
+        Reservar
+      </button>
     </article>
   );
 };

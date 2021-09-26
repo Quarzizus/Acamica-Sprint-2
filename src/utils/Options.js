@@ -22,7 +22,7 @@ const prices = {
 
 const sizes = {
   options: {
-    0: "Cualquier tamaño",
+    "Todos los tamaños": "Cualquier tamaño",
     10: "Pequeño",
     20: "Mediano",
     30: "Grande",

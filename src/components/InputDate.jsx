@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import AppContext from "../context/AppContext";
 
-const InputDate = ({ name }) => {
+const InputDate = ({ name, placeholder }) => {
   const [date, setDate] = useState(false);
   const { filtersValues, setFiltersValues, filterInputs, setData } =
     useContext(AppContext);
@@ -26,7 +26,7 @@ const InputDate = ({ name }) => {
       ) : (
         <input
           type="text"
-          placeholder="Fecha de inicio"
+          placeholder={placeholder}
           onFocus={() => setDate(!date)}
         />
       )}
